@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {memo} from "react";
 
-export const Button = (text, textColor,bgColor) => {
-  return (
-    <button type='button' className={`py-2 px4 ${textColor} ${bgColor} outline-none rounded-md`}>
-      {text}
-    </button>
-  )
-}
+export const Button = ({ text, textColor, bgColor, IcAfter, onClick, fullWidth }) => {
+    return (
+        <button className={`${textColor} ${bgColor} ${fullWidth && "w-full"} px-4 py-2 rounded hover:underline flex items-center justify-center gap-1`}
+        onClick = {onClick}>
+            {text}
+            {IcAfter && <IcAfter/>}
+          
+        </button>
+    );
+};
+export default memo(Button);
